@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			div.wrapper {
+				width: 30%;
+				height: 300px;
+				background-color: rgba(80, 80, 80, 0.9);
+				box-shadow: 1px 1px solid rgba(200, 200, 200, 0.9);
+				border-radius: 3px;
+				margin: auto;
+			}
+			h2 {
+				color: white;
+				text-align: center;
+				padding: 20px;
+			}
+			span {
+				color: white;
+				font-family: Arial;
+			}
+			div.inp-wrapper {
+				text-align: center;
+			}
+			div.inp-wrapper button {
+				margin: 10px;
+				padding: 5px 10px;
+			}
+			p#str {
+				color: yellow;
+				font-size: 24px;
+				font-weight: bold;
+				text-align: center;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			div.out-wrapper {	
+				background-color: rgba(250, 250, 250, 0.5);
+				width: 130px;
+				height: 70px;
+				margin: 30px auto;
+				border-radius: 3px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="wrapper">
+			<h2>Get a FizzBuzz Result</h2>
+			<div class="inp-wrapper">
+				<span>Type a number (1 - 100)</span>
+				<input type="number"  onchange="fizzBuzz()">
+				<button onclick="fizzBuzz()">Clik here</button>
+			</div>
+			<div class="out-wrapper">
+				<p id="str"></p>
+			</div>
+			<script>
+				
+				
+				
+				function fizzBuzz() {
+					const inNumber = document.querySelector("input").value;
+					
+					let array = [];
+					
+					let number = 0;
+					
+					for (let i = 0; i < 100; i++) {
+						number += 1;
+						
+						if (number % 3 === 0) {
+							if (number % 5 === 0) {
+								array.push("FizzBuzz");
+								
+							} else if (number % 5 !== 0) {
+								array.push("Fizz");
+							}
+						}	else if (number % 3 !== 0) {
+							if (number % 5 === 0) {
+								array.push("Buzz");
+								
+							} else {
+								array.push(number);
+								
+							}
+						}
+					}
+					
+					for (let i = 0; i < array.length; i++) {
+						if (inNumber >= 1 && inNumber <= 100) {
+							document.getElementById("str").innerHTML = array[inNumber - 1];
+							
+						} else {
+							document.getElementById("str").innerHTML = "invalid input";
+							
+						}
+						
+					}
+							 
+				}
+				
+			</script>
+		</div>
+	</body>
+</html>
